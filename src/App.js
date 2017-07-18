@@ -11,31 +11,19 @@ class App extends Component {
     this.state = {
       image: "",
       name: "",
-      status: "Hello",
+      status: "",
       birthdate: ""
     }
-    this.updateName = this.updateName.bind(this)
-    this.updateImage = this.updateImage.bind(this)
-    this.updateStatus = this.updateStatus.bind(this)
-    this.updateBirthdate = this.updateBirthdate.bind(this)
+    this.updateName = this.updateProperty.bind(this, "name")
+    this.updateImage = this.updateProperty.bind(this, "image")
+    this.updateStatus = this.updateProperty.bind(this, "status")
+    this.updateBirthdate = this.updateProperty.bind(this, "birthdate")
   }
 
 //methods
-  updateName(e) {
+  updateProperty(property, e) {
     console.log(e.target.value);
-    this.setState({name: e.target.value})
-  }
-
-  updateImage(e) {
-    this.setState({image: e.target.value})
-  }
-
-  updateStatus(e) {
-    this.setState({status: e.target.value})
-  }
-
-  updateBirthdate(e) {
-    this.setState({birthdate: e.target.value})
+    this.setState({[property]: e.target.value})
   }
 
    render() {
